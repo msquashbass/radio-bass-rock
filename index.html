@@ -296,19 +296,7 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
         </a>
     </div>
 </section>
-<!-- Tempo / Climatempo -->
-<section id="clima">
-    <h2>🌤️ Tempo — Natal, RN</h2>
-    <div class="clima-container">
-        <div class="clima-icon">☀️</div>
-        <div>
-            <h3>Natal — Rio Grande do Norte</h3>
-            <div class="clima-temp">29°C</div>
-            <div class="clima-desc">Parcialmente nublado • Umidade: 68%</div>
-            <p style="margin-top:0.5rem; font-size:0.8rem; color:#666;">Dados via Climatempo — atualizado em tempo real</p>
-        </div>
-    </div>
-</section>
+
         
 <!-- Rodapé -->
 <footer>
@@ -331,7 +319,7 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
             <span>🎙️</span>
             <div>
                 <strong>Câmera do Estúdio — Rádio Bass Rock</strong><br>
-                <em>Insira o link da sua câmera ou imagem ao vivo aqui</em>
+                <em>https://www.youtube.com/embed/8Th2hgkl1v8</em>
             </div>
         </div>
         <div class="studio-info">
@@ -345,7 +333,19 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
         const menu = document.getElementById('navMenu');
         menu.classList.toggle('show');
     }
-
+<!-- Tempo / Climatempo -->
+<section id="clima">
+    <h2>🌤️ Tempo — Natal, RN</h2>
+    <div class="clima-container">
+        <div class="clima-icon">☀️</div>
+        <div>
+            <h3>Natal — Rio Grande do Norte</h3>
+            <div class="clima-temp">29°C</div>
+            <div class="clima-desc">Parcialmente nublado • Umidade: 68%</div>
+            <p style="margin-top:0.5rem; font-size:0.8rem; color:#666;">Dados via Climatempo — atualizado em tempo real</p>
+        </div>
+    </div>
+</section>
     // Fechar menu ao clicar em um link
     document.querySelectorAll('#navMenu a').forEach(link => {
         link.addEventListener('click', () => {

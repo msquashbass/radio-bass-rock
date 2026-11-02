@@ -68,11 +68,27 @@
         .dia { font-weight: bold; color: var(--gold); }
 @media (max-width: 600px) {
   .programacao-table {
-    font-size: 13px;
+    display: block;
+    width: 100%;
   }
-  .programacao-table th,
+  .programacao-table thead {
+    display: none;
+  }
+  .programacao-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #333;
+  }
   .programacao-table td {
-    padding: 10px 6px;
+    display: flex;
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+  .programacao-table td:first-child {
+    font-weight: bold;
+    color: var(--gold);
+    background: rgba(0,0,0,0.3);
   }
 }
 

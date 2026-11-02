@@ -98,6 +98,48 @@
             .hero h1 { font-size: 2rem; }
             h2 { font-size: 1.5rem; }
         }
+     @media (max-width: 600px) {
+  .programacao-table {
+    display: block;
+    width: 100%;
+  }
+  .programacao-table thead {
+    display: none;
+  }
+  .programacao-table tr {
+    display: block;
+    margin-bottom: 20px;
+    background: rgba(0,0,0,0.35);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .programacao-table td {
+    display: block;
+    padding: 12px 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .programacao-table td:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--gold);
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+  }
+  .programacao-table td:before {
+    content: attr(data-label) ": ";
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 4px;
+  }
+
     </style>
 </head>
 <body>

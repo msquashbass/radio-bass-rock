@@ -136,11 +136,12 @@
            calc(100% - 30px); display: block; margin: 0
                    auto;">
         <p>24 horas de rock, energia e atitude — direto do estúdio para você, com dois players!</p>               
-       <!-- Vídeo do Estúdio e Top 5 em Duas Colunas -->
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0;">
+       
+     <!-- Vídeo do Estúdio e Top 5 em Duas Colunas -- Igual tamanho -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0; align-items: stretch;">
 
   <!-- COLUNA ESQUERDA — Vídeo do Estúdio -->
-  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37; height: 100%;">
     <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-bottom: 15px;">📺 No Estúdio</h2>
     <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px;">
       <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
@@ -153,11 +154,10 @@
   </section>
 
   <!-- COLUNA DIREITA — Top 5 -->
-  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37; height: 100%;">
     <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-bottom: 15px;">🎵 Top 5 — Mais Tocadas</h2>
     
     <!-- COLA AQUI O SEU CÓDIGO DO TOP 5 -->
-    <!-- Deixe tudo exatamente como estava antes! -->
     
   </section>
 
@@ -170,7 +170,7 @@
     grid-template-columns: 1fr !important;
   }
 }
-</style>    
+</style>   
 
      <!-- Notícias do Mundo Rock -->
  

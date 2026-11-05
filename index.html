@@ -223,89 +223,66 @@
   </div>        
 </section>
                         
-<!-- Área de Recados e Pedidos -->
-<section style="background: #1a1a1a; padding: 25px; border-radius: 8px; margin: 30px 0; border: 2px solid #d4af37;">
-  <h2 style="color: #d4af37; text-align: center; font-size: 1.8rem; margin-bottom: 10px;">📬 Deixe seu Recado</h2>
-  <p style="color: #ccc; text-align: center; margin-bottom: 25px;">Mande sua mensagem, peça sua música ou envie um salve! 🎸🤘</p>
+<!-- Área de Recados e Programação em Duas Colunas -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0;">
 
-  <form action="https://formspree.io/f/xnpprllb" method="POST" style="max-width: 500px; margin: 0 auto;">
-    <div style="margin-bottom: 15px;">
-      <label for="nome" style="display: block; color: #fff; margin-bottom: 5px;">Seu nome:</label>
-      <input type="text" id="nome" name="nome" required style="width: 100%; padding: 10px; border: none; border-radius: 4px; font-size: 1rem;">
+  <!-- COLUNA ESQUERDA — Deixe seu Recado -->
+  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-bottom: 10px;">📬 Deixe seu Recado</h2>
+    <p style="color: #ccc; text-align: center; margin-bottom: 20px; font-size: 0.9rem;">Mande sua mensagem, peça sua música ou envie um salve! 🎸🤘</p>
+
+    <form action="https://formspree.io/f/xnpprllb" method="POST">
+      <div style="margin-bottom: 12px;">
+        <label for="nome" style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Seu nome:</label>
+        <input type="text" id="nome" name="nome" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem;">
+      </div>
+
+      <div style="margin-bottom: 12px;">
+        <label for="tipo" style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Tipo:</label>
+        <select id="tipo" name="tipo" style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem;">
+          <option value="recado">💬 Recado</option>
+          <option value="pedido-musica">🎵 Pedido de Música</option>
+          <option value="salve">🤘 Salve</option>
+          <option value="outro">📝 Outro</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label for="mensagem" style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Sua mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; resize: vertical;"></textarea>
+      </div>
+
+      <div style="text-align: center;">
+        <button type="submit" style="background: #d4af37; color: #000; font-weight: bold; padding: 10px 25px; border: none; border-radius: 4px; font-size: 0.95rem; cursor: pointer;">
+          ✅ Enviar
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- COLUNA DIREITA — Nossa Programação -->
+  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-bottom: 15px;">📻 Nossa Programação</h2>
+
+    <!-- Aqui você cola a sua tabela de programação inteira -->
+    <div style="overflow-x: auto;">
+      <table class="programacao-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+        <!-- COLA AQUI O SEU CÓDIGO DA TABELA DE PROGRAMAÇÃO -->
+        <!-- Mantenha exatamente como estava antes! -->
+      </table>
     </div>
+  </section>
 
-    <div style="margin-bottom: 15px;">
-      <label for="tipo" style="display: block; color: #fff; margin-bottom: 5px;">Tipo de mensagem:</label>
-      <select id="tipo" name="tipo" style="width: 100%; padding: 10px; border: none; border-radius: 4px; font-size: 1rem;">
-        <option value="recado">💬 Recado / Mensagem</option>
-        <option value="pedido-musica">🎵 Pedido de Música</option>
-        <option value="salve">🤘 Salve para alguém</option>
-        <option value="outro">📝 Outro</option>
-      </select>
-    </div>
+</div>
 
-    <div style="margin-bottom: 15px;">
-      <label for="mensagem" style="display: block; color: #fff; margin-bottom: 5px;">Sua mensagem:</label>
-      <textarea id="mensagem" name="mensagem" rows="5" required style="width: 100%; padding: 10px; border: none; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
-    </div>
-
-    <div style="text-align: center;">
-      <button type="submit" style="background: #d4af37; color: #000; font-weight: bold; padding: 12px 30px; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer;">
-        ✅ Enviar Mensagem
-      </button>
-    </div>
-  </form>
-</section>
-
-<!-- Programação -->
-         
-<section id="programacao">
-    <h2>📅 Nossa Programação</h2>
-    <table class="programacao-table">
-        <tr>
-            <th class="dia">Horário</th>
-            <th>Segunda a Sexta</th>
-            <th>Sábado</th>
-            <th>Domingo</th>
-        </tr>
-        <tr>
-            <td class="dia">06h às 09h</td>
-            <td>Acorda Rock — O despertar com energia</td>
-            <td>Clássicos do Rock</td>
-            <td>Rock para Começar Bem</td>
-        </tr>
-        <tr>
-            <td class="dia">09h às 12h</td>
-            <td>Rock no Trabalho — Sua companhia diária</td>
-            <td>Especial: Anos 80 & 90</td>
-            <td>Acústico e Rock Suave</td>
-        </tr>
-        <tr>
-            <td class="dia">12h às 15h</td>
-            <td>Almoço com Rock</td>
-            <td>Rock Mundial</td>
-            <td>Flashback: Os Maiores Sucessos</td>
-        </tr>
-        <tr>
-            <td class="dia">15h às 18h</td>
-            <td>Bass Rock Ao Vivo — Interação com ouvintes</td>
-            <td>Independente & Rock Nacional</td>
-            <td>Tarde de Rock</td>
-        </tr>
-        <tr>
-            <td class="dia">Domingo - 06h às 00h</td>
-            <td>Sunday Flash Rock</td>
-        </tr>
-        <tr>
-            <td class="dia">21h até...</td>
-            <td>Noite de Rock Sem Fim</td>
-            <td>Rock Clássico</td>
-            <td>Madrugada com Rock</td>
-        </tr>
-    </table>
-</section>
-
- </div>
+<!-- Para celular: uma abaixo da outra -->
+<style>
+@media (max-width: 768px) {
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
 
 <!-- Baixe o App -->
 <section id="app">

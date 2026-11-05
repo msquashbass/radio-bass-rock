@@ -136,73 +136,41 @@
            calc(100% - 30px); display: block; margin: 0
                    auto;">
         <p>24 horas de rock, energia e atitude — direto do estúdio para você, com dois players!</p>               
-            <!-- Top 5 Músicas -->
-<section id="top5">
-    <h2>🔥 Top 5 — As Mais Tocadas</h2>
-    <div class="top5-list">
-        <div class="top5-item">
-            <span class="posicao">1º</span>
-            <div class="musica-info">
-                <h4>AC/DC - Back in Black</h4>
-                               <p>Álbum: Back in Black</p>
-               
-<audio controls style="width: 100px; margin: 10px 0;">
-  <source src="AC_DC - BACK IN BLACK.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio.
+       <!-- Vídeo do Estúdio e Top 5 em Duas Colunas -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0;">
 
-</audio>
-            </div>
-        </div>
-         <div class="top5-item">
-            <span class="posicao">2º</span>
-            <div class="musica-info">
-                <h4>GUNS N' ROSES - SWEET CHILD O' MINE
-                               <p>Álbum: Appetite for Destruction</p>
-               
-<audio controls style="width: 100px; margin: 10px 0;">
-  <source src="GUNS N' ROSES - SWEET CHILD O' MINE.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio.
-            </div>
-        </div>
-        <div class="top5-item">
-            <span class="posicao">3º</span>
-           <div class="musica-info">
-                <h4>QUEEN - BOHEMIAN RHAPSODY
-                               <p>Álbum: A Night at the Opera</p>
-               
-<audio controls style="width: 100px; margin: 10px 0;">
-  <source src="QUEEN - BOHEMIAN RHAPSODY.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio.
-            </div>
-        </div>
-        <div class="top5-item">
-            <span class="posicao">4º</span>
-           <div class="musica-info">
-                <h4>IRON MAIDEN - THE NUMBER OF THE BEAST
-                               <p>Álbum: the number of the beast</p>
-               
-<audio controls style="width: 100px; margin: 10px 0;">
-  <source src="IRON MAIDEN - THE NUMBER OF THE BEAST.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio.
-            </div>
-        </div>
-        <div class="top5-item">
-            <span class="posicao">5º</span>
-           <div class="musica-info">
-                <h4>KISS - I WAS MADE FOR LOVIN' YOU
-                               <p>Álbum: Dynasty</p>
-               
-<audio controls style="width: 100px; margin: 10px 0;">
-  <source src="KISS - I WAS MADE FOR LOVIN' YOU.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio.
-            </div>
-        </div>
+  <!-- COLUNA ESQUERDA — Vídeo do Estúdio -->
+  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-bottom: 15px;">📺 No Estúdio</h2>
+    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px;">
+      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        src="https://www.youtube.com/embed/v7vMMWFKqf8" 
+        title="Vídeo do Estúdio" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+    </div>
+  </section>
 
- <!-- Videos -->
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 0 auto; margin: 15px 0;">
-  <iframe src="https://www.youtube.com/embed/Kh_AGh3Gqs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+  <!-- COLUNA DIREITA — Top 5 -->
+  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-bottom: 15px;">🎵 Top 5 — Mais Tocadas</h2>
+    
+    <!-- COLA AQUI O SEU CÓDIGO DO TOP 5 -->
+    <!-- Deixe tudo exatamente como estava antes! -->
+    
+  </section>
+
 </div>
-</div>
+
+<!-- No celular: empilha uma abaixo da outra -->
+<style>
+@media (max-width: 768px) {
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>    
 
      <!-- Notícias do Mundo Rock -->
  

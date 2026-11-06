@@ -138,39 +138,36 @@
                    auto;">
         <p>24 horas de rock, energia e atitude — direto do estúdio para você, com dois players!</p>               
        
-    <!-- Vídeo do Estúdio e Top 5 — Lado a Lado, Mesmo Tamanho -->
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0;">
+  <!-- Vídeo e Top 5 — Lado a Lado, Mesmo Tamanho -->
+<div style="display: flex; gap: 20px; margin: 30px 0;">
 
-  <!-- COLUNA ESQUERDA — Vídeo -->
-  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37; min-height: 280px; display: flex; flex-direction: column;">
-    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin: 0 0 15px 0;">📺 No Estúdio</h2>
-    <div style="flex: 1; display: flex; align-items: center;">
-      <div class="video-container" style="width: 100%; padding-bottom: 56.25%; position: relative; border-radius: 4px;">
-        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-          src="https://www.youtube.com/embed/v7vMMWFKqf8" 
-          title="Vídeo do Estúdio" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen></iframe>
-      </div>
+  <!-- COLUNA ESQUERDA -->
+  <div style="flex: 1; background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-top: 0; margin-bottom: 15px;">📺 No Estúdio</h2>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px;">
+      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        src="https://www.youtube.com/embed/v7vMMWFKqf8" 
+        title="Vídeo do Estúdio" 
+        frameborder="0" 
+        allowfullscreen></iframe>
     </div>
-  </section>
+  </div>
 
-  <!-- COLUNA DIREITA — Top 5 -->
-  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37; min-height: 280px; display: flex; flex-direction: column;">
-    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin: 0 0 15px 0;">🎵 Top 5 — Mais Tocadas</h2>
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+  <!-- COLUNA DIREITA -->
+  <div style="flex: 1; background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37; display: flex; flex-direction: column; justify-content: center;">
+    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-top: 0; margin-bottom: 15px;">🎵 Top 5 — Mais Tocadas</h2>
+    <div>
       <!-- COLA AQUI O SEU CÓDIGO DO TOP 5 -->
     </div>
-  </section>
+  </div>
 
 </div>
 
-<!-- No celular: empilha -->
+<!-- No celular: uma abaixo da outra -->
 <style>
 @media (max-width: 768px) {
-  div[style*="grid-template-columns: 1fr 1fr"] {
-    grid-template-columns: 1fr !important;
+  div[style*="display: flex"] {
+    flex-direction: column !important;
   }
 }
 </style> 

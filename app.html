@@ -64,7 +64,7 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .btn {
@@ -118,19 +118,40 @@
             color: #000;
         }
 
-        .hint {
-            font-size: 13px;
-            color: #555;
-            line-height: 1.6;
+        .info-box {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
         }
 
-        .hint strong {
-            color: #777;
+        .info-box h3 {
+            color: #f5a623;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .info-box ol {
+            margin: 10px 0 0 20px;
+        }
+
+        .info-box li {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 8px;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 20px;
             color: #666;
             text-decoration: none;
             font-size: 14px;
@@ -151,12 +172,12 @@
         <p class="tagline">Ouça onde quiser, a qualquer hora! 🤘</p>
 
         <div class="buttons">
-            <!-- 🌐 Aplicativo Web -->
+            <!-- 🌐 Versão Web App -->
             <a href="https://webradiobass.com.br/app" class="btn btn-primary">
-                <span class="btn-icon">🌐</span>
+                <span class="btn-icon">📲</span>
                 <div class="btn-text">
-                    <div class="btn-small">Versão</div>
-                    <div class="btn-large">Acessar App Web</div>
+                    <div class="btn-small">Versão App</div>
+                    <div class="btn-large">Abrir Agora</div>
                 </div>
             </a>
 
@@ -179,10 +200,16 @@
             </a>
         </div>
 
-        <p class="hint">
-            💡 <strong>Dica:</strong> Acesse pelo navegador do celular e toque em<br>
-            <strong>"Adicionar à tela inicial"</strong> para instalar como um app! 📱
-        </p>
+        <div class="info-box">
+            <h3>📱 Como instalar no celular:</h3>
+            <p>Não precisa baixar nada! É só adicionar à tela inicial:</p>
+            <ol>
+                <li>Toque em <strong>"Abrir Agora"</strong> acima</li>
+                <li>No navegador, toque nos <strong>três pontinhos</strong> ⋮ ou no botão de compartilhar ↗️</li>
+                <li>Escolha <strong>"Adicionar à tela inicial"</strong></li>
+                <li>Pronto! O ícone aparecerá igual a um app na sua tela! ✅</li>
+            </ol>
+        </div>
 
         <a href="https://webradiobass.com.br" class="back-link">← Voltar para o site</a>
     </div>

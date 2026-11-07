@@ -3,100 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Versão App — Rádio Bass Rock</title>
+    <title>Baixe o App — Rádio Bass Rock</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Barlow', sans-serif;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
         }
+
         body {
-            background: linear-gradient(135deg, #1a1a0a 0%, #2a2a1a 100%);
+            background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
-            color: white;
+            padding: 40px 20px;
+            color: #fff;
         }
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #f5d329;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin-bottom: 2rem;
-        }
-        h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
-            color: #f5d329;
-            letter-spacing: 3px;
-        }
-        h2 {
-            font-size: 1rem;
-            font-weight: 400;
-            color: #ccc;
-            margin-bottom: 0.5rem;
-        }
-        .tagline {
-            color: #999;
-            font-size: 0.95rem;
-            margin-bottom: 3rem;
-        }
-        .btn-primary {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: #f5d329;
-            color: #1a1a0a;
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 20px rgba(245, 211, 41, 0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(245, 211, 41, 0.4);
-        }
-        .instructions {
-            margin-top: 3rem;
-            max-width: 400px;
+
+        .container {
+            max-width: 420px;
+            width: 100%;
             text-align: center;
-            color: #aaa;
-            font-size: 0.9rem;
-            line-height: 1.6;
         }
-        .instructions h3 {
-            color: #f5d329;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+
+        .logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5a623, #e69500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 48px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #f5a623;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: #999;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 45px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #222;
+            padding: 18px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            border-color: #f5a623;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f5a623, #e69500);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.35);
+        }
+
+        .btn-icon {
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .btn-text {
+            text-align: left;
+        }
+
+        .btn-small {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 3px;
+        }
+
+        .btn-large {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .btn-primary .btn-large {
+            color: #000;
+        }
+
+        .info-box {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .info-box h3 {
+            color: #f5a623;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .info-box ol {
+            margin: 10px 0 0 20px;
+        }
+
+        .info-box li {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #f5a623;
         }
     </style>
 </head>
 <body>
-    <div class="logo">🎸</div>
-    
-    <h1>RÁDIO BASS ROCK</h1>
-    <h2>A 1ª Rádio Rock do Rio Grande do Norte</h2>
-    <p class="tagline">Ouça onde quiser, a qualquer hora!</p>
-    
-    <!-- ✅ BOTÃO QUE ABRE DIRETO O APP -->
-    <a href="https://bass-rock-radio-hub.lovable.app/" target="_blank" class="btn-primary">
-        📱 Abrir App Agora
-    </a>
+    <div class="container">
+        <div class="logo">🎸</div>
+        
+        <h1>RÁDIO BASS ROCK</h1>
+        <h2>A 1ª Rádio Rock do Rio Grande do Norte</h2>
+        <p class="tagline">Ouça onde quiser, a qualquer hora! 🤘</p>
 
-    <div class="instructions">
-        <h3>📲 No celular — salve na tela inicial:</h3>
-        <p>Após abrir o app, toque em <strong>"Compartilhar" ↗️</strong> e depois em <strong>"Adicionar à tela inicial"</strong>. Assim ele fica igual a qualquer outro aplicativo no seu celular!</p>
+        <div class="buttons">
+            <!-- 🌐 Versão Web App -->
+            <a href="https://webradiobass.com.br/app" class="btn btn-primary">
+                <span class="btn-icon">📲</span>
+                <div class="btn-text">
+                    <div class="btn-small">Versão App</div>
+                    <div class="btn-large">Abrir Agora</div>
+                </div>
+            </a>
+
+            <!-- 📲 Google Play -->
+            <a href="#" class="btn">
+                <span class="btn-icon">▶️</span>
+                <div class="btn-text">
+                    <div class="btn-small">Em breve na</div>
+                    <div class="btn-large">Google Play</div>
+                </div>
+            </a>
+
+            <!-- 🍎 App Store -->
+            <a href="#" class="btn">
+                <span class="btn-icon">🍎</span>
+                <div class="btn-text">
+                    <div class="btn-small">Em breve na</div>
+                    <div class="btn-large">App Store</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="info-box">
+            <h3>📱 Como instalar no celular:</h3>
+            <p>Não precisa baixar nada! É só adicionar à tela inicial:</p>
+            <ol>
+                <li>Toque em <strong>"Abrir Agora"</strong> acima</li>
+                <li>No navegador, toque nos <strong>três pontinhos</strong> ⋮ ou no botão de compartilhar ↗️</li>
+                <li>Escolha <strong>"Adicionar à tela inicial"</strong></li>
+                <li>Pronto! O ícone aparecerá igual a um app na sua tela! ✅</li>
+            </ol>
+        </div>
+
+        <a href="https://webradiobass.com.br" class="back-link">← Voltar para o site</a>
     </div>
 </body>
 </html>

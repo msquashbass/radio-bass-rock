@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rádio Bass Rock</title>
     <style>
+      /* Menu mobile */
+#navMenu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background: #111;
+  z-index: 999;
+  padding-top: 60px;
+}
+
+#navMenu.show {
+  display: block;
+}
+
+#navMenu li {
+  list-style: none;
+  padding: 14px 25px;
+}
+
+#navMenu li a {
+  color: #fff;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+/* ===== FIM DO CÓDIGO ===== */
+
+  * { margin: 0; padding: 0; ...
+  [o resto do código que já estava lá continua igual]
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
         :root { --rock: #111; --red: #c00; --gold: #fc0; --gray: #222; --light: #f4f4f4; }
         body { background: var(--rock); color: white; line-height: 1.6; }
@@ -410,10 +442,19 @@ s0.parentNode.insertBefore(s1,s0);
 <!--End of Tawk.to Script-->
  <script>
     // Menu mobile
-    function toggleMenu() {
-        const menu = document.getElementById('navMenu');
-        menu.classList.toggle('show');
-    }
+   function toggleMenu() {
+  const menu = document.getElementById('navMenu');
+  if (menu) {
+    menu.classList.toggle('show');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const botao = document.querySelector('#menuToggle, .menu-toggle, button[onclick*="toggleMenu"], div[onclick*="toggleMenu"]');
+  if (botao) {
+    botao.addEventListener('click', toggleMenu);
+  }
+});
 
 
   

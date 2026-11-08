@@ -404,6 +404,48 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+}
+</script>
+
+<style>
+#navMenu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #1a1a2e;
+  flex-direction: column;
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+  z-index: 9999;
+}
+
+#navMenu.show {
+  display: flex;
+}
+
+#navMenu li {
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#navMenu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  font-size: 28px;
+  padding: 10px 15px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+</style>  
  <script>
     // Menu mobile
     function toggleMenu() {

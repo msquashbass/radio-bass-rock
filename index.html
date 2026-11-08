@@ -245,35 +245,26 @@
 
 </div>
 
-     
-</section>
- <style>
-@media (max-width: 768px) {
-    div[style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
-        gap: 15px !important;
-    }
-}
-</style>
-
-<!-- Clima -->
+ <!-- Clima em Natal -->
 <div style="text-align:center; padding: 15px; color:#fff; font-size: 1rem; margin-top: 20px;">
-    🌤️ Temperatura em Natal: <span id="clima">Carregando...</span>
+    ☀️ Temperatura em Natal: <span id="clima">Aguarde...</span>
 </div>
 <script>
-fetch('https://api.openweathermap.org/data/2.5/weather?q=Natal,BR&units=metric&lang=pt_br&appid=27d29438c573b0827067f958d4278441')
-.then(r=>r.json())
-.then(d=>{
-    const temp = Math.round(d.main.temp);
-    const desc = d.weather[0].description;
-    document.getElementById('clima').innerHTML = ${temp}°C — ${desc};
-})
-.catch(()=>{
-    document.getElementById('clima').innerHTML = 'Indisponível no momento';
-});
-</script>                       
+async function pegarClima() {
+    try {
+        const resposta = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-5.79&longitude=-35.21&current=temperature_2m&timezone=America%2FRecife');
+        const dados = await resposta.json();
+        const temp = Math.round(dados.current.temperature_2m);
+        document.getElementById('clima').innerHTML = ${temp}°C — Natal, RN;
+    } catch {
+        document.getElementById('clima').innerHTML = ${new Date().toLocaleDateString('pt-BR')};
+    }
+}
+pegarClima();
+</script>
+                       
 <!-- Área de Recados e Programação em Duas Colunas -->
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 25px; margin: 30px 0;">
 
   <!-- COLUNA ESQUERDA — Deixe seu Recado -->
   <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">

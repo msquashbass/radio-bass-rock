@@ -473,7 +473,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+});
+});
+</script>
 
-  
+
+<!-- Botão do Menu Mobile -->
+<div class="menu-toggle" onclick="toggleMenu()">≡</div>
 
  

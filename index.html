@@ -112,9 +112,29 @@
  
        
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <nav>
-            <ul id="navMenu">
-                <li><a href="index.html">Início</a></li>
+                   
+</header>
+  
+<iframe src="https://player.srvsh.com.br/player-topo-4/8158/000000" frameborder="0" width="95%" height="90"></iframe><section id="inicio">
+   <!-- Temperatura Parnamirim/RN -->
+<div style="text-align: center; margin: 15px 0; padding: 10px; background: rgba(26,26,26,0.8); border-radius: 8px; border: 1px solid #d4af37;">
+  <span id="temp-clima" style="font-size: 18px; color: #d4af37;">Carregando clima...</span>
+</div>
+
+<script>
+async function pegarClima() {
+  try {
+    const res = await fetch('https://wttr.in/Parnamirim?format=%l:+%c+%t');
+    const dados = await res.text();
+    document.getElementById('temp-clima').textContent = '📍 ' + dados;
+  } catch {
+    document.getElementById('temp-clima').textContent = '📍 Parnamirim/RN — Clima indisponível';
+  }
+}
+pegarClima();
+</script>
+  <ul id="navMenu">
+<li><a href="index.html">Início</a></li>
 <li><a href="top5.html">Top 5</a></li>
 <li><a href="noticias.html">Notícias</a></li>
 <li><a href="programacao.html">Programação</a></li>
@@ -125,10 +145,6 @@
                    </ul>
         </nav>
     </div>
-</header>
-  
-<iframe src="https://player.srvsh.com.br/player-topo-4/8158/000000" frameborder="0" width="95%" height="90"></iframe><section id="inicio">
-   
   <div class="hero">
        <img src="LOGO BASS.jpeg"
            alt="Rádio Bass Rock" style="max-width:

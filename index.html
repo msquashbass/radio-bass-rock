@@ -117,21 +117,22 @@
   
 <iframe src="https://player.srvsh.com.br/player-topo-4/8158/000000" frameborder="0" width="95%" height="90"></iframe><section id="inicio">
    <!-- Temperatura Parnamirim/RN -->
-<div style="text-align: center; margin: 15px 0; padding: 10px; background: rgba(26,26,26,0.8); border-radius: 8px; border: 1px solid #d4af37;">
-  <span id="temp-clima" style="font-size: 18px; color: #d4af37;">Carregando clima...</span>
+<!-- Temperatura Parnamirim/RN -->
+<div id="clima-simples" style="text-align: center; margin: 15px auto; padding: 12px; background: #1a1a1a; border-radius: 8px; border: 2px solid #d4af37; max-width: 400px;">
+  <strong style="color: #d4af37;">📍 Parnamirim/RN</strong>
+  <p style="color: #fff; margin: 8px 0 0 0; font-size: 16px;">Carregando...</p>
 </div>
 
 <script>
-async function pegarClima() {
-  try {
-    const res = await fetch('https://wttr.in/Parnamirim?format=%l:+%c+%t');
-    const dados = await res.text();
-    document.getElementById('temp-clima').textContent = '📍 ' + dados;
-  } catch {
-    document.getElementById('temp-clima').textContent = '📍 Parnamirim/RN — Clima indisponível';
-  }
-}
-pegarClima();
+fetch('https://wttr.in/Parnamirim?format=%c+%t+%w')
+  .then(resposta => resposta.text())
+  .then(dados => {
+    document.querySelector('#clima-simples p').textContent = dados;
+  })
+  .catch(erro => {
+    document.querySelector('#clima-simples p').textContent = '🌤️ Clima indisponível no momento';
+  });
+</script>
 </script>
   <ul id="navMenu">
 <li><a href="index.html">Início</a></li>

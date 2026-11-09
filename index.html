@@ -10,10 +10,17 @@
         body { background: var(--rock); color: white; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto; }
-/* Garante que o chat apareça no celular */
+/* Garante que o chat apareça em todos os dispositivos */
 iframe[title*="tawk"],
-#tawkto-iframe {
-  z-index: 9999999 !important;
+#tawkto-iframe,
+div[class*="tawk"],
+div#tawk-iframe-container {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 99999999 !important;
+  bottom: 20px !important;
+  right: 20px !important;
 }
         header { background: linear-gradient(135deg, var(--red), #800); padding: 1rem 5%; position: sticky; top:0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }

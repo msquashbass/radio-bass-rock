@@ -133,7 +133,14 @@
   border-radius: 4px;
 }
 
-#navMenu { display: flex !important; }    
+#navMenu { display: flex !important; }  
+    
+@media (max-width: 700px) {
+  #navMenu {
+    flex-direction: column;
+    max-width: 300px;
+  }
+}  
     </style>
 </head>
 <body>

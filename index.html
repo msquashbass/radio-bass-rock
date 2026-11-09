@@ -449,8 +449,16 @@ s0.parentNode.insertBefore(s1,s0);
   padding: 10px 15px;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  position: relative;
-  z-index: 999999;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 9999999 !important;
+  display: block;
+  background: rgba(255, 215, 0, 0.9);
+  color: #000;
+  border-radius: 4px;
+  font-weight: bold;
+}
 }
 </style>
 

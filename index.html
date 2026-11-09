@@ -117,22 +117,13 @@
   
 <iframe src="https://player.srvsh.com.br/player-topo-4/8158/000000" frameborder="0" width="95%" height="90"></iframe><section id="inicio">
    <!-- Temperatura Parnamirim/RN -->
-<!-- Temperatura Parnamirim/RN -->
-<div id="clima-simples" style="text-align: center; margin: 15px auto; padding: 12px; background: #1a1a1a; border-radius: 8px; border: 2px solid #d4af37; max-width: 400px;">
-  <strong style="color: #d4af37;">📍 Parnamirim/RN</strong>
-  <p style="color: #fff; margin: 8px 0 0 0; font-size: 16px;">Carregando...</p>
+<div style="text-align: center; margin: 15px auto; padding: 12px; background: #1a1a1a; border-radius: 8px; border: 2px solid #d4af37; max-width: 400px;">
+  <strong style="color: #d4af37; font-size: 17px;">📍 Parnamirim/RN</strong>
+  <p style="color: #fff; margin: 8px 0 0 0; font-size: 16px;">
+    🌤️ --°C
+  </p>
 </div>
-
-<script>
-fetch('https://wttr.in/Parnamirim?format=%c+%t+%w')
-  .then(resposta => resposta.text())
-  .then(dados => {
-    document.querySelector('#clima-simples p').textContent = dados;
-  })
-  .catch(erro => {
-    document.querySelector('#clima-simples p').textContent = '🌤️ Clima indisponível no momento';
-  });
-</script>
+  
 </script>
   <ul id="navMenu">
 <li><a href="index.html">Início</a></li>

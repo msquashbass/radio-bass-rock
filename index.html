@@ -10,7 +10,11 @@
         body { background: var(--rock); color: white; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto; }
-
+/* Garante que o chat apareça no celular */
+iframe[title*="tawk"],
+#tawkto-iframe {
+  z-index: 9999999 !important;
+}
         header { background: linear-gradient(135deg, var(--red), #800); padding: 1rem 5%; position: sticky; top:0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; }
@@ -83,7 +87,6 @@
 
     <!-- Botão Menu Mobile -->
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
     <!-- Player -->
 <iframe src="https://player.srvsh.com.br/player-home-page/8158" frameborder="0" width="100%" height="400"></iframe>
     <!-- Clima Parnamirim/RN -->
@@ -248,9 +251,12 @@
         <p>Natal — Rio Grande do Norte • Brasil</p>
     </footer>
 
-    <!-- Script Menu Mobile -->
-    <script>
-    function toggleMenu() {
-        const menu = document.getElementById('navMenu');
-        menu.classList.toggle('show');
-        menu.classList.toggle
+   <!-- Script Menu Mobile -->
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('navMenu');
+  menu.classList.toggle('show');
+}
+</script>
+</body>
+</html>

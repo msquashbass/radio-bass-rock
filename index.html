@@ -417,12 +417,18 @@ s0.parentNode.insertBefore(s1,s0);
   padding: 10px 0;
   margin: 0;
   list-style: none;
-  z-index: 99999;
+  z-index: 999999 !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 #navMenu.show {
-  display: flex;
+  display: flex !important;
+}
+}
+
+
 }
 
 #navMenu li {

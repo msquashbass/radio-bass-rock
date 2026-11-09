@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -6,536 +6,252 @@
     <title>Rádio Bass Rock</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        :root { --rock: #111; --red: #c00; --gold: #fc0; --gray: #222; --light: #f4f4f4; }
+        :root { --rock: #111; --red: #c00; --gold: #d4af37; --gray: #222; --light: #f4f4f4; }
         body { background: var(--rock); color: white; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; }
-
+        img { max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto; }
 
         header { background: linear-gradient(135deg, var(--red), #800); padding: 1rem 5%; position: sticky; top:0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; }
         .logo span { color: var(--gold); }
-        nav ul { display: flex; list-style: none; gap: 1.5rem; flex-wrap: wrap; }
-        nav a { padding: 0.5rem; border-bottom: 2px solid transparent; transition: 0.3s; }
-        nav a:hover, nav a.active { border-bottom-color: var(--gold); color: var(--gold); }
-        .menu-toggle { display: none; font-size: 2rem; cursor: pointer; }
-
-        section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
-        h2 { font-size: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--red); padding-left: 1rem; }
-        .btn { display: inline-block; background: var(--red); padding: 0.7rem 1.5rem; border-radius: 4px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: var(--gold); color: black; }
-        .btn-gold { background: var(--gold); color: black; }
-        .btn-gold:hover { background: white; }
-
-        /* Hero / Player */
-        #inicio { padding-top: 2rem; }
-        .hero { text-align: center; padding: 3rem 1rem; background: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200') center/cover no-repeat; position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 3rem; }
-        .hero::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.75); }
-        .hero > * { position: relative; z-index: 1; }
-        .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 0 0 20px var(--red); }
-        .hero p { font-size: 1.2rem; color: #ccc; margin-bottom: 2rem; }
         
-        .player-box { background: var(--gray); padding: 2rem; border-radius: 8px; max-width: 500px; margin: 0 auto; border: 2px solid var(--red); }
-        .player-box h3 { margin-bottom: 1rem; color: var(--gold); }
-        audio { width: 100%; margin-bottom: 1rem; }
-        .playing-info { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
-        .cover { width: 60px; height: 60px; background: var(--red); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; }
+        .menu-toggle { display: none; font-size: 28px; padding: 8px 12px; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; position: fixed; top: 10px; right: 10px; z-index: 999999; background: rgba(212, 175, 55, 0.95); color: #000; border-radius: 4px; font-weight: bold; }
+
+        section { padding: 2rem 5%; max-width: 1200px; margin: 0 auto; }
+        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--red); padding-left: 1rem; color: var(--gold); }
+
+        /* Menu Principal */
+        #navMenu {
+            list-style: none;
+            padding: 15px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 2px solid var(--gold);
+            max-width: 1000px;
+        }
+        #navMenu li a {
+            color: var(--gold);
+            text-decoration: none;
+            padding: 8px 12px;
+            font-weight: 500;
+        }
+        #navMenu li a:hover {
+            background: var(--gold);
+            color: #000;
+            border-radius: 4px;
+        }
+
+        /* Hero / Logo */
+        .hero { text-align: center; padding: 2rem 1rem; }
+        .hero img { max-width: 350px; width: 80%; margin: 0 auto 1rem; }
+        .hero p { font-size: 1rem; color: #ccc; }
 
         /* Top 5 */
-        .top5-list { display: flex; flex-direction: column; gap: 1rem; }
-        .top5-item { background: var(--gray); padding: 1rem 1.5rem; border-radius: 6px; display: flex; align-items: center; gap: 1rem; transition: 0.3s; }
-        .top5-item:hover { transform: translateX(8px); background: #2a2a2a; }
-        .posicao { font-size: 1.5rem; font-weight: bold; color: var(--gold); min-width: 30px; }
-        .musica-info h4 { font-size: 1rem; }
-        .musica-info p { font-size: 0.85rem; color: #888; }
+        .top5-item { background: var(--gray); padding: 12px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .posicao { font-size: 1.3rem; font-weight: bold; color: var(--gold); min-width: 30px; text-align: center; }
+        audio { flex: 1; height: 36px; }
 
-        /* Notícias */
-        .noticias-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .noticia-card { background: var(--gray); border-radius: 8px; overflow: hidden; transition: 0.3s; }
-        .noticia-card:hover { transform: translateY(-5px); }
-        .noticia-img { height: 160px; background: #333; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #555; }
-        .noticia-content { padding: 1.2rem; }
-        .noticia-content h3 { margin-bottom: 0.8rem; font-size: 1.1rem; }
-        .noticia-content p { color: #aaa; font-size: 0.9rem; }
-        .data { font-size: 0.75rem; color: var(--gold); margin-top: 0.5rem; display: inline-block; }
-
-        /* Programação */
-        .programacao-table { width: 100%; border-collapse: collapse; background: var(--gray); border-radius: 8px; overflow: hidden; }
-        .programacao-table th, .programacao-table td { padding: 1rem; text-align: left; border-bottom: 1px solid #333; }
-        .programacao-table th { background: var(--red); }
-        .programacao-table tr:hover { background: #2a2a2a; }
-        .dia { font-weight: bold; color: var(--gold); }
-
-        /* Clima */
-        .clima-container { background: var(--gray); padding: 2rem; border-radius: 8px; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-        .clima-icon { font-size: 4rem; }
-        .clima-info h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .clima-temp { font-size: 2.5rem; font-weight: bold; }
-        .clima-desc { color: #aaa; }
-
-        /* Estúdio */
-        .studio-box { background: var(--gray); border-radius: 8px; overflow: hidden; text-align: center; }
-        .studio-cam { background: #333; height: 350px; display: flex; align-items: center; justify-content: center; color: #888; font-size: 1.2rem; flex-direction: column; gap: 1rem; }
-        .studio-cam span { font-size: 4rem; }
-        .studio-info { padding: 1rem; }
-
-        /* App */
-        .app-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
-        .app-card { background: var(--gray); padding: 2rem; border-radius: 8px; transition: 0.3s; }
-        .app-card:hover { transform: translateY(-5px); border: 1px solid var(--gold); }
-        .app-icon { font-size: 3rem; margin-bottom: 1rem; color: var(--gold); }
-
-        footer { background: black; text-align: center; padding: 3rem 5%; margin-top: 3rem; color: #666; font-size: 0.9rem; }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        /* Rodapé */
+        footer { background: black; text-align: center; padding: 2rem 5%; margin-top: 3rem; color: #666; font-size: 0.9rem; }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { color: #888; }
         .footer-links a:hover { color: var(--gold); }
 
         /* Responsivo */
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            nav ul#mobileMenu { flex-direction: column; width: 100%; display: none; padding: 1rem 0; }
-            nav ul#mobileMenu.show { display: flex; }
-            .hero h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
+            #navMenu { flex-direction: column; max-width: 300px; }
+            #navMenu.hidden-mobile { display: none; }
+            #navMenu.show { display: flex; position: fixed; top: 60px; left: 0; right: 0; margin: 0; border-radius: 0; border: none; z-index: 99999; max-height: 80vh; overflow-y: auto; }
+            h2 { font-size: 1.25rem; }
         }
-     img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* Menu Principal */
-#navMenu {
-  list-style: none;
-  padding: 15px;
-  margin: 20px auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  background: #1a1a1a;
-  border-radius: 8px;
-  border: 2px solid #d4af37;
-  max-width: 1000px;
-}
-
-#navMenu li a {
-  color: #d4af37;
-  text-decoration: none;
-  padding: 8px 12px;
-  font-weight: 500;
-}
-
-#navMenu li a:hover {
-  background: #d4af37;
-  color: #000;
-  border-radius: 4px;
-}
-
-/* Menu Principal */
-#navMenu {
-  list-style: none;
-  padding: 15px;
-  margin: 20px auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  background: #1a1a1a;
-  border-radius: 8px;
-  border: 2px solid #d4af37;
-  max-width: 1000px;
-}
-
-#navMenu li a {
-  color: #d4af37;
-  text-decoration: none;
-  padding: 8px 12px;
-  font-weight: 500;
-}
-
-#navMenu li a:hover {
-  background: #d4af37;
-  color: #000;
-  border-radius: 4px;
-}
-
-/* Ajuste só para celular */
-@media (max-width: 700px) {
-  #navMenu {
-    flex-direction: column;
-    max-width: 300px;
-  }
-}
-  }
-}  
     </style>
 </head>
 <body>
     <!-- Cabeçalho -->
- 
-       
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-                   
-</header>
-  <!--Player Bass -->
-  
-<iframe src="https://player.srvsh.com.br/player-home-page/8150" frameborder="0" width="96%" height="465"></iframe>
-  
-  <!-- Clima Parnamirim/RN -->
-<div style="text-align: center; margin: 15px auto; padding: 12px; background: #1a1a1a; border-radius: 8px; border: 2px solid #d4af37; max-width: 400px;">
-  <strong style="color: #d4af37; font-size: 17px;">📍 Parnamirim/RN</strong>
-  <p style="color: #fff; margin: 8px 0 0 0; font-size: 16px;">🌤️ Temperatura atual: --°C</p>
-</div>
-  
+    <header>
+        <div class="nav-container">
+            <div class="logo">🎸 RÁDIO <span>BASS ROCK</span></div>
+        </div>
+    </header>
 
-  <ul id="navMenu">
-<li><a href="index.html">Início</a></li>
-<li><a href="top5.html">Top 5</a></li>
-<li><a href="noticias.html">Notícias</a></li>
-<li><a href="programacao.html">Programação</a></li>
-<li><a href="estudio.html">Estúdio</a></li>
-<li><a href="servicos.html">Serviços</a></li>              
-<li><a href="app.html">Baixe o App</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-                   </ul>
-        
-    </div>
-  <div class="hero">
-       <img src="LOGO BASS.jpeg"
-          alt="Rádio Bass Rock" style="max-width: 350px; width: 80%; display: block; margin: 0 auto;"
-        <p>24 horas de rock, energia e atitude — direto do estúdio para você!</p>  
-      
+    <!-- Botão Menu Mobile -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-          <!-- Dois Banners Lado a Lado -->
-<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
-  <!-- Banner Esquerdo -->
-  <div style="flex: 1; min-width: 280px; max-width: 400px;">
-    <a href="#" target="_blank">
-      <img src="radiosnet.png" alt="Banner 1" style="width: 100%; height: auto; border-radius: 8px;">
-    </a>
-  </div>
-  
-  <!-- Banner Direito -->
-  <div style="flex: 1; min-width: 280px; max-width: 400px;">
-    <a href="#" target="_blank">
-      <img src="aula.png.png" alt="Banner 2" style="width: 100%; height: auto; border-radius: 8px;">
-    </a>
-  </div>
-</div>
+    <!-- Player -->
+    <iframe src="https://player.srvsh.com.br/player-home-page/8150" frameborder="0" width="96%" height="465" style="display: block; margin: 15px auto; max-width: 1000px;"></iframe>
 
-<!-- Vídeo e T       
-<!-- Vídeo e Top 5 — Lado a Lado, Mesmo Tamanho -->
-<div style="display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
-
-  <!-- COLUNA ESQUERDA -->
-  <div style="flex: 1; min-width: 300px; background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
-    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-top: 0; margin-bottom: 15px;">📺 No Estúdio</h2>
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px;">
-      <iframe 
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-        src="https://www.youtube.com/embed/8Th2hgkl1v8" 
-        title="Vídeo do Estúdio"
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-
-  <!-- COLUNA DIREITA — Top 5 -->
-  <div style="flex: 1; min-width: 300px; background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
-    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-top: 0; margin-bottom: 15px;">🎵 Top 5 — Mais Tocadas</h2>
-
-    <div style="width: 100%;">
-      <div style="margin-bottom: 10px;">
-        <span style="color: #d4af37; font-weight: bold;">1º</span>
-        <span style="color: #fff; margin-left: 8px;">U2 - SILENCIO</span>
-        <audio controls style="width: 100%; height: 36px; margin-top: 4px;">
-          <source src="U2 - SILENCIO.mp3" type="audio/mpeg">
-          Seu navegador não suporta áudio.
-        
-      </div>
-
-      <div style="margin-bottom: 10px;">
-        <span style="color: #d4af37; font-weight: bold;">2º</span>
-        <span style="color: #fff; margin-left: 8px;">THE ROLLING STONES - YOU KNOW I'M NO GOOD</span>
-        <audio controls style="width: 100%; height: 36px; margin-top: 4px;">
-          <source src="THE ROLLING STONES - YOU KNOW I'M NO GOOD.mp3" type="audio/mpeg">
-          Seu navegador não suporta áudio.
-        
-      </div>
-
-      <div style="margin-bottom: 10px;">
-        <span style="color: #d4af37; font-weight: bold;">3º</span>
-        <span style="color: #fff; margin-left: 8px;">The Smashing Pumpkins - Black Stars</span>
-        <audio controls style="width: 100%; height: 36px; margin-top: 4px;">
-          <source src="THE SMASHING PUMPKINS - BLACK STARS.mp3" type="audio/mpeg">
-          Seu navegador não suporta áudio.
-        
-      </div>
-
-      <div style="margin-bottom: 10px;">
-        <span style="color: #d4af37; font-weight: bold;">4º</span>
-        <span style="color: #fff; margin-left: 8px;">SUBLIME - FAVORITE SONG</span>
-        <audio controls style="width: 100%; height: 36px; margin-top: 4px;">
-          <source src="SUBLIME - FAVORITE SONG.mp3" type="audio/mpeg">
-          Seu navegador não suporta áudio.
-        
-      </div>
-
-      <div>
-        <span style="color: #d4af37; font-weight: bold;">5º</span>
-        <span style="color: #fff; margin-left: 8px;">BLONDIE - SPECTRAL EYES</span>
-        <audio controls style="width: 100%; height: 36px; margin-top: 4px;">
-          <source src="BLONDIE - SPECTRAL EYES.mp3" type="audio/mpeg">
-          Seu navegador não suporta áudio.
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 📱 App | 📰 Notícias — Duas Colunas -->
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px 0;">
-
-    <!-- COLUNA ESQUERDA: Página do App -->
-    <div style="text-align: center; padding: 2rem; border-radius: 12px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-        <h3 style="color: #f5d329; font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">
-            📱 Baixe o App
-        </h3>
-        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 1.2rem;">Ouça de onde estiver, direto do celular!</p>
-        <a href="https://webradiobass.com.br/app.html" style="display: inline-block; background: #f5d329; color: #1a1a0a; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.95rem;">
-            📲 Abrir Página do App
-        </a>
+    <!-- Clima Parnamirim/RN -->
+    <div style="text-align: center; margin: 15px auto; padding: 12px; background: #1a1a1a; border-radius: 8px; border: 2px solid #d4af37; max-width: 400px;">
+        <strong style="color: #d4af37; font-size: 17px;">📍 Parnamirim/RN</strong>
+        <p style="color: #fff; margin: 8px 0 0 0; font-size: 16px;">🌤️ Temperatura atual: --°C</p>
     </div>
 
-    <!-- COLUNA DIREITA: Notícias de Rock -->
-    <div style="text-align: center; padding: 2rem; border-radius: 12px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-        <h3 style="color: #f5d329; font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem;">
-            📰 Notícias do Rock
-        </h3>
-        <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 1.2rem;">Fique por dentro do mundo do rock!</p>
-        <a href="https://www.whiplash.net/" target="_blank" style="display: inline-block; background: #f5d329; color: #1a1a0a; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.95rem;">
-            🎸 Abrir Notícias
-        </a>
+    <!-- Menu Principal -->
+    <ul id="navMenu" class="hidden-mobile">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="top5.html">Top 5</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="programacao.html">Programação</a></li>
+        <li><a href="estudio.html">Estúdio</a></li>
+        <li><a href="servicos.html">Serviços</a></li>              
+        <li><a href="app.html">Baixe o App</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+    </ul>
+
+    <!-- Hero / Logo -->
+    <div class="hero">
+        <img src="LOGO BASS.jpeg" alt="Rádio Bass Rock">
+        <p>24 horas de rock, energia e atitude — direto do estúdio para você!</p>
     </div>
 
-</div>
-      
-<!-- Área de Recados e Programação em Duas Colunas -->
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 25px; margin: 30px 0;">
-
-  <!-- COLUNA ESQUERDA — Deixe seu Recado -->
-  <section style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
-    <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin-bottom: 10px;">📬 Deixe seu Recado</h2>
-    <p style="color: #ccc; text-align: center; margin-bottom: 20px; font-size: 0.9rem;">Mande sua mensagem, peça sua música ou envie um salve! 🎸🤘</p>
-
-    <form action="https://formspree.io/f/xnpprllb" method="POST">
-      <div style="margin-bottom: 12px;">
-        <label for="nome" style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Seu nome:</label>
-        <input type="text" id="nome" name="nome" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem;">
-      </div>
-
-      <div style="margin-bottom: 12px;">
-        <label for="tipo" style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Tipo:</label>
-        <select id="tipo" name="tipo" style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem;">
-          <option value="recado">💬 Recado</option>
-          <option value="pedido-musica">🎵 Pedido de Música</option>
-          <option value="salve">🤘 Salve</option>
-          <option value="outro">📝 Outro</option>
-        </select>
-      </div>
-
-      <div style="margin-bottom: 15px;">
-        <label for="mensagem" style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Sua mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="4" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; resize: vertical;"></textarea>
-      </div>
-
-      <div style="text-align: center;">
-        <button type="submit" style="background: #d4af37; color: #000; font-weight: bold; padding: 10px 25px; border: none; border-radius: 4px; font-size: 0.95rem; cursor: pointer;">
-          ✅ Enviar
-        </button>
-      </div>
-    </form>
-  </section>
-
-  
-
-    <!-- COLUNA DIREITA — Nossa Programação -->
-<div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
-  <h2 style="color: #d4af37; text-align: center; font-size: 1.5rem; margin: 0 0 20px 0;">📻 Nossa Programação</h2>
-  
-  <div style="color: #fff; font-size: 0.95rem; line-height: 1.8;">
-    <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;">
-      <strong style="color: #d4af37;">Segunda a Sexta</strong><br>
-      🕙 08h00 — <strong>Rock na Manhã</strong><br>
-      🕐 12h00 — <strong>Almoço com Rock</strong><br>
-      🕔 17h00 — <strong>Rock às 17h</strong><br>
-      🕗 20h00 — <strong>Noite de Clássicos</strong><br>
-      🕛 24h00 — <strong>Rock Sem Parar</strong>
-    </div>
-    
-    <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;">
-      <strong style="color: #d4af37;">Sábado</strong><br>
-      🕙 10h00 — <strong>Especial do Sábado</strong><br>
-      🕐 14h00 — <strong>Top 5 — Mais Tocadas</strong><br>
-      🕔 18h00 — <strong>Clássicos do Rock</strong><br>
-      🕛 24h00 — <strong>Rock 24h</strong>
-    </div>
-   <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;">
-  <strong style="color: #d4af37;">Sábado — 20h00</strong><br>
-  ● 20h00 — <strong>Saturday Night Fever</strong>
-</div>
-
-<div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;">
-  <strong style="color: #d4af37;">Domingo — Todo o dia até 00h00</strong><br>
-  ● O dia todo — <strong>Sunday Flash Rock</strong>
-</div> 
-   
-</div>
-    
-  </section>
-
-</div>
-
-<!-- Para celular: uma abaixo da outra -->
-<style>
-@media (max-width: 768px) {
-  div[style*="grid-template-columns: 1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-  }
-}
-</style>
-
-  
-<!-- Ouça a Bass Aqui Também --> 
- 
-                        <div style="text-align:center; padding: 10px 15px; color:#fff; font-size: 0.95rem; line-height: 1.5; margin: 15px 0;">
-    </div>
-<script>
-async function pegarClima() {
-    try {
-        const resposta = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-5.9231&longitude=-35.2639&current=temperature_2m&timezone=America%2FRecife');
-        const dados = await resposta.json();
-        const temp = Math.round(dados.current.temperature_2m);
-        document.getElementById('clima').innerHTML = temp + '°C — Parnamirim, RN';
-    } catch {
-        document.getElementById('clima').innerHTML = new Date().toLocaleDateString('pt-BR');
-    }
-}
-pegarClima();
-</script>  
-<div id="ww_cf3acc9cf2285" v='1.3' loc='id' a='{"t":"responsive","lang":"pt","sl_lpl":1,"ids":["wl4947"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_wfc":3}'>
-</script>
- 
- 
- <!-- Rodapé -->
-<footer>
-    <div class="footer-links">
-        <a href="#inicio">Início</a>
-        <a href="#programacao">Programação</a>
-        <a href="#noticias">Notícias</a>
-        <a href="#app">App</a>
-        <a href="#">Contato</a>
-        <a href="#">Sobre Nós</a>
+    <!-- Banners -->
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
+        <div style="flex: 1; min-width: 280px; max-width: 400px;">
+            <a href="#" target="_blank">
+                <img src="radiosnet.png" alt="Banner 1" style="width: 100%; height: auto; border-radius: 8px;">
+            </a>
+        </div>
+        <div style="flex: 1; min-width: 280px; max-width: 400px;">
+            <a href="#" target="_blank">
+                <img src="aula.png.png" alt="Banner 2" style="width: 100%; height: auto; border-radius: 8px;">
+            </a>
+        </div>
     </div>
 
- 
-    <!-- Inicia codigo Contador -->
-  <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
-<!-- Histats.com  START  (aync)-->
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,5062439,4,26,190,115,00010000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5062439&101" alt="php hit counter" border="0"></a></noscript>
-<!-- Histats.com  END  -->
- 
-  <p>© 2026 Rádio Bass Rock — Todos os direitos reservados.</p>
-    <p>Natal — Rio Grande do Norte • Brasil</p>
-</footer>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6aedc06b8b9c663c37932a4e/1k6obf9mr';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-<style>
-#navMenu {
-  display: none;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  background: #1a1a2e;
-  flex-direction: column;
-  padding: 10px 0;
-  margin: 0;
-  list-style: none;
-  z-index: 999999 !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  max-height: 80vh;
-  overflow-y: auto;
-}
+    <!-- Vídeo e Top 5 -->
+    <div style="display: flex; gap: 20px; margin: 30px auto; flex-wrap: wrap; max-width: 1200px; padding: 0 5%;">
+        <div style="flex: 1; min-width: 300px; background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+            <h3 style="color: #d4af37; text-align: center; font-size: 1.3rem; margin-top: 0; margin-bottom: 15px;">📺 No Estúdio</h3>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 4px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube.com/embed/8Th2hgkl1v8" title="Vídeo do Estúdio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
 
-#navMenu.show {
-  display: flex !important;
-}
-}
+        <div style="flex: 1; min-width: 300px; background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+            <h3 style="color: #d4af37; text-align: center; font-size: 1.3rem; margin-top: 0; margin-bottom: 15px;">🎵 Top 5 — Mais Tocadas</h3>
+            <div>
+                <div class="top5-item">
+                    <span class="posicao">1º</span>
+                    <span>U2 - SILENCIO</span>
+                    <audio controls><source src="U2 - SILENCIO.mp3" type="audio/mpeg">
+                </div>
+                <div class="top5-item">
+                    <span class="posicao">2º</span>
+                    <span>THE ROLLING STONES - YOU KNOW I'M NO GOOD</span>
+                    <audio controls><source src="THE ROLLING STONES - YOU KNOW I'M NO GOOD.mp3" type="audio/mpeg">
+                </div>
+                <div class="top5-item">
+                    <span class="posicao">3º</span>
+                    <span>SMASHING PUMPKINS - Black Stars</span>
+                    <audio controls><source src="THE SMASHING PUMPKINS - BLACK STARS.mp3" type="audio/mpeg">
+                </div>
+                <div class="top5-item">
+                    <span class="posicao">4º</span>
+                    <span>SUBLIME - FAVORITE SONG</span>
+                    <audio controls><source src="SUBLIME - FAVORITE SONG.mp3" type="audio/mpeg">
+                </div>
+                <div class="top5-item">
+                    <span class="posicao">5º</span>
+                    <span>BLONDIE - SPECTRAL EYES</span>
+                    <audio controls><source src="BLONDIE - SPECTRAL EYES.mp3" type="audio/mpeg">
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- App e Notícias -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px auto; max-width: 1200px; padding: 0 5%;">
+        <div style="text-align: center; padding: 2rem; border-radius: 12px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+            <h3 style="color: #f5d329; font-size: 1.3rem; margin-bottom: 0.5rem;">📱 Baixe o App</h3>
+            <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 1.2rem;">Ouça de onde estiver, direto do celular!</p>
+            <a href="https://webradiobass.com.br/app.html" style="display: inline-block; background: #f5d329; color: #1a1a0a; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">📲 Abrir Página do App</a>
+        </div>
+        <div style="text-align: center; padding: 2rem; border-radius: 12px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+            <h3 style="color: #f5d329; font-size: 1.3rem; margin-bottom: 0.5rem;">📰 Notícias do Rock</h3>
+            <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 1.2rem;">Fique por dentro do mundo do rock!</p>
+            <a href="https://www.whiplash.net/" target="_blank" style="display: inline-block; background: #f5d329; color: #1a1a0a; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">🎸 Abrir Notícias</a>
+        </div>
+    </div>
 
-}
+    <!-- Recados e Programação -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px auto; max-width: 1200px; padding: 0 5%;">
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+            <h3 style="color: #d4af37; text-align: center; font-size: 1.3rem; margin-bottom: 15px;">📬 Deixe seu Recado</h3>
+            <form action="https://formspree.io/f/xnpprllb" method="POST">
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Seu nome:</label>
+                    <input type="text" name="nome" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; color: #000;">
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Tipo:</label>
+                    <select name="tipo" style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; color: #000;">
+                        <option value="recado">💬 Recado</option>
+                        <option value="pedido-musica">🎵 Pedido de Música</option>
+                        <option value="salve">🤘 Salve</option>
+                        <option value="outro">📝 Outro</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Sua mensagem:</label>
+                    <textarea name="mensagem" rows="4" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; resize: vertical; color: #000;"></textarea>
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" style="background: #d4af37; color: #000; font-weight: bold; padding: 10px 25px; border: none; border-radius: 4px; font-size: 0.95rem; cursor: pointer;">✅ Enviar</button>
+                </div>
+            </form>
+        </div>
 
-#navMenu li {
-  padding: 12px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+        <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
+            <h3 style="color: #d4af37; text-align: center; font-size: 1.3rem; margin-bottom: 20px;">📻 Nossa Programação</h3>
+            <div style="color: #fff; font-size: 0.95rem; line-height: 1.8;">
+                <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;">
+                    <strong style="color: #d4af37;">Segunda a Sexta</strong><br>
+                    🕙 08h00 — Rock na Manhã<br>
+                    🕐 12h00 — Almoço com Rock<br>
+                    🕔 17h00 — Rock às 17h<br>
+                    🕗 20h00 — Noite de Clássicos<br>
+                    🕛 24h00 — Rock Sem Parar
+                </div>
+                <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;">
+                    <strong style="color: #d4af37;">Sábado</strong><br>
+                    🕙 10h00 — Especial do Sábado<br>
+                    🕐 14h00 — Top 5 — Mais Tocadas<br>
+                    🕔 18h00 — Clássicos do Rock<br>
+                    🕗 20h00 — Saturday Night Fever<br>
+                    🕛 24h00 — Rock 24h
+                </div>
+                <div>
+                    <strong style="color: #d4af37;">Domingo</strong><br>
+                    🎵 Dia todo — Sunday Flash Rock
+                </div>
+            </div>
+        </div>
+    </div>
 
-#navMenu li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
-}
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="programacao.html">Programação</a>
+            <a href="noticias.html">Notícias</a>
+            <a href="app.html">App</a>
+            <a href="#">Contato</a>
+            <a href="sobre.html">Sobre Nós</a>
+        </div>
+        <p>© 2026 Rádio Bass Rock — Todos os direitos reservados.</p>
+        <p>Natal — Rio Grande do Norte • Brasil</p>
+    </footer>
 
-.menu-toggle {
-  cursor: pointer;
-  font-size: 28px;
-  padding: 10px 15px;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  left: auto;
-  z-index: 9999999 !important;
-  display: block;
-  background: rgba(255, 215, 0, 0.9);
-  color: #000;
-  border-radius: 4px;
-  font-weight: bold;
-}
-}
-</style>
-
-<script>
-// Menu mobile
-function toggleMenu() {
-  const menu = document.getElementById('navMenu');
-  menu.classList.toggle('show');
-}
-</script>
+    <!-- Script Menu Mobile -->
+    <script>
+    function toggleMenu() {
+        const menu = document.getElementById('navMenu');
+        menu.classList.toggle('show');
+        menu.classList.toggle

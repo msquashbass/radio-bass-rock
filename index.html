@@ -404,6 +404,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<style>
 #navMenu {
   display: none;
   position: fixed;
@@ -418,8 +419,38 @@ s0.parentNode.insertBefore(s1,s0);
   z-index: 99999;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
-    // Menu mobile
-    function toggleMenu() {
-        const menu = document.getElementById('navMenu');
-        menu.classList.toggle('show');
-    }
+
+#navMenu.show {
+  display: flex;
+}
+
+#navMenu li {
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#navMenu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  font-size: 28px;
+  padding: 10px 15px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 999999;
+}
+</style>
+
+<script>
+// Menu mobile
+function toggleMenu() {
+  const menu = document.getElementById('navMenu');
+  menu.classList.toggle('show');
+}
+</script>

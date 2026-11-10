@@ -249,7 +249,50 @@
         <p>© 2026 Rádio Bass Rock — Todos os direitos reservados.</p>
         <p>Natal — Rio Grande do Norte • Brasil</p>
     </footer>
-
+<!-- Clima Parnamirim/RN -->
+<script>
+async function pegarClima() {
+    try {
+        const resposta = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-5.9231&longitude=-35.2639&current=temperature_2m&timezone=America%2FRecife');
+        const dados = await resposta.json();
+        const temp = Math.round(dados.current.temperature_2m);
+        document.querySelector('.clima-temp').innerHTML = temp + '°C';
+    } catch {
+        console.log('Não foi possível carregar o clima');
+    }
+}
+pegarClima();
+</script>
+<div style="text-align: center; margin: 15px auto; padding: 12px; background: #1a1a1a; border-radius: 8px; border: 2px solid #d4af37; max-width: 400px;">
+    <strong style="color: #d4af37; font-size: 17px;">📍 Parnamirim/RN</strong>
+    <p style="color: #fff; margin: 8px 0 0 0; font-size: 16px;" class="clima-temp">🌤️ Temperatura atual: --°C</p>
+</div>
+    <!-- Histats.com  START -->
+<div id="histats_counter"></div>
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5062439,4,26,190,115,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5062439&101" alt="contador de visitas" border="0"></a></noscript>
+<!-- Histats.com  END -->
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6aedc06b8b9c663c37932a4e/1k6obf9mr';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
     <!-- Script Menu Mobile -->
     <script>
     function toggleMenu() {

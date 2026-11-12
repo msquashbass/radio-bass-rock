@@ -60,7 +60,7 @@ function gerar() {
     const imagem = document.getElementById('imagem').value.trim();
     const conteudo = document.getElementById('conteudo').value || '';
     
-    const imgHtml = imagem ? 
+    const imgHtml = imagem && imagem !== '' ? 
         <img src="${imagem}" alt="${titulo}" style="max-width:100%; height:auto; border-radius:5px; margin-bottom:12px;"> : '';
     
     const resultado = `<div style="background:#222; padding:20px; margin-bottom:20px; border-radius:8px; border-left:4px solid #fc0;">
@@ -72,6 +72,11 @@ function gerar() {
     
     document.getElementById('codigo').value = resultado;
 }
+
+document.getElementById('titulo').addEventListener('input', gerar);
+document.getElementById('data').addEventListener('input', gerar);
+document.getElementById('imagem').addEventListener('input', gerar);
+document.getElementById('conteudo').addEventListener('input', gerar);
 </script>
 
 </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rádio Bass Rock</title>
-    <style>
+        <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
         :root { --rock: #111; --red: #c00; --gold: #d4af37; --gray: #222; --light: #f4f4f4; }
         body { background: var(--rock); color: white; line-height: 1.6; }
@@ -72,6 +72,20 @@
             #navMenu.hidden-mobile { display: none; }
             #navMenu.show { display: flex; position: fixed; top: 60px; left: 0; right: 0; margin: 0; border-radius: 0; border: none; z-index: 99999; max-height: 80vh; overflow-y: auto; }
             h2 { font-size: 1.25rem; }
+            .botao-app {
+  background: linear-gradient(135deg, #fc0, #d4af37);
+  color: #111 !important;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 5px;
+  text-align: center;
+}
+.botao-app:hover {
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  transform: scale(1.02);
+  transition: all 0.2s ease;
         }
     </style>
 </head>
@@ -97,10 +111,9 @@
         <li><a href="noticias.html">Notícias</a></li>
         <li><a href="programacao.html">Programação</a></li>
         <li><a href="estudio.html">Estúdio</a></li>
-        <li><a href="servicos.html">Serviços</a></li>              
-        <li><a href="servicos.html">Serviços</a></li>
-        <li><a href="https://github.com/msquashbass/radio-bass-rock/raw/main/App-RADIOBASSROCK.apk" target="_blank">⬇️ Baixar App</a></li>
-       <li><a href="sobre.html">Sobre Nós</a></li>
+       <li><a href="servicos.html">Serviços</a></li>
+<li><a href="https://github.com/msquashbass/radio-bass-rock/raw/main/App-RADIOBASSROCK.apk" target="_blank" class="botao-app">📲 Baixar App</a></li>
+<li><a href="sobre.html">Sobre Nós</a></li>
            </ul>
 
     <!-- Hero / Logo -->

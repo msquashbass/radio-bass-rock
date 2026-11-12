@@ -3,113 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Controle - Rádio Bass Rock</title>
+    <title>Painel - Notícias</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: #111; color: white; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
-        .container { background: #222; padding: 30px; border-radius: 10px; width: 100%; max-width: 500px; border: 2px solid #fc0; }
-        h1 { text-align: center; color: #fc0; margin-bottom: 25px; font-size: 22px; }
-        .step { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; color: #ddd; }
-        input, textarea { width: 100%; padding: 12px; border: none; border-radius: 5px; background: #333; color: white; font-size: 16px; }
-        textarea { min-height: 120px; resize: vertical; }
-        button { width: 100%; padding: 14px; background: #fc0; color: #111; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        button:hover { background: #e0c000; }
-        .result { margin-top: 20px; padding: 15px; background: #333; border-radius: 5px; display: none; }
-        textarea#codigo { min-height: 140px; font-size: 12px; margin-top: 10px; }
-        .copiado { color: #0f0; margin-top: 10px; display: none; }
-        #painel { display: none; }
-        .dica { font-size: 13px; color: #aaa; margin-top: 5px; }
+        body { background: #111; color: white; min-height: 100vh; padding: 20px; }
+        .container { max-width: 550px; margin: 0 auto; background: #222; padding: 25px; border-radius: 10px; border: 2px solid #fc0; }
+        h1 { text-align: center; color: #fc0; margin-bottom: 25px; font-size: 20px; }
+        .campo { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; font-size: 15px; color: #ddd; }
+        input, textarea { width: 100%; padding: 10px; border: none; border-radius: 5px; background: #333; color: white; font-size: 15px; }
+        textarea { min-height: 100px; resize: vertical; }
+        .dica { font-size: 12px; color: #888; margin-top: 4px; }
+        .aviso { background: #2a2a2a; padding: 12px; border-radius: 5px; margin-bottom: 20px; border-left: 3px solid #fc0; font-size: 14px; }
     </style>
 </head>
 <body>
 
-<div id="login" class="container">
-    <h1>🔐 Painel - Notícias</h1>
-    <div class="step">
-        <label>Digite sua senha:</label>
-        <input type="password" id="senha" placeholder="Senha...">
-    </div>
-    <button onclick="entrar()">Entrar</button>
-</div>
-
-<div id="painel" class="container">
-    <h1>🎛️ Nova Notícia</h1>
+<div class="container">
+    <h1>📝 Gerador de Notícias</h1>
     
-    <div class="step">
-        <label>Título da notícia:</label>
-        <input type="text" id="titulo" placeholder="Ex: Novo programa ao vivo!">
+    <div class="aviso">
+        Escreva sua notícia abaixo → o código aparece pronto lá embaixo → copie e cole na página noticias.html
     </div>
     
-    <div class="step">
+    <div class="campo">
+        <label>Título:</label>
+        <input type="text" id="titulo" oninput="gerar()">
+    </div>
+    
+    <div class="campo">
         <label>Data:</label>
-        <input type="text" id="data" placeholder="12 de Novembro de 2026">
+        <input type="text" id="data" oninput="gerar()">
     </div>
     
-    <div class="step">
+    <div class="campo">
         <label>Link da imagem:</label>
-        <input type="text" id="imagem" placeholder="https://seu-site.com/foto.jpg">
-        <p class="dica">📌 Envie a foto para o GitHub e cole o link dela aqui</p>
+        <input type="text" id="imagem" oninput="gerar()">
+        <p class="dica">Envie a foto no GitHub e cole o link aqui</p>
     </div>
     
-    <div class="step">
+    <div class="campo">
         <label>Conteúdo da notícia:</label>
-        <textarea id="conteudo" placeholder="Escreva aqui a notícia..."></textarea>
+        <textarea id="conteudo" oninput="gerar()"></textarea>
     </div>
     
-    <button onclick="gerarCodigo()">📦 Gerar Código Pronto</button>
-    
-    <div class="result" id="caixaResultado">
-        <strong>✅ Copie o código abaixo:</strong>
-        <textarea id="codigo" readonly></textarea>
-        <button onclick="copiarCodigo()" style="margin-top: 10px;">📋 Copiar para Colar</button>
-        <div class="copiado" id="msgCopiado">✓ Copiado! Agora é só colar na página noticias.html</div>
+    <div class="campo">
+        <label>📋 Código pronto — copie aqui:</label>
+        <textarea id="codigo" readonly placeholder="O código aparecerá aqui..."></textarea>
     </div>
 </div>
 
 <script>
-const SENHA_CORRETA = 'rock2026';
-
-function entrar() {
-    const senhaDigitada = document.getElementById('senha').value;
-    if (senhaDigitada === SENHA_CORRETA) {
-        document.getElementById('login').style.display = 'none';
-        document.getElementById('painel').style.display = 'block';
-    } else {
-        alert('Senha incorreta! Tente novamente.');
-    }
-}
-
-function gerarCodigo() {
+function gerar() {
     const titulo = document.getElementById('titulo').value || 'Sem Título';
     const data = document.getElementById('data').value || '';
     const imagem = document.getElementById('imagem').value.trim();
     const conteudo = document.getElementById('conteudo').value || '';
     
-    const blocoImagem = imagem 
-        ? <img src="${imagem}" alt="${titulo}" style="max-width: 100%; height: auto; border-radius: 5px; margin-bottom: 15px;">
-        : '';
+    const imgHtml = imagem ? 
+        <img src="${imagem}" alt="${titulo}" style="max-width:100%; height:auto; border-radius:5px; margin-bottom:12px;"> : '';
     
-    const codigoGerado = `
-<div style="background: #222; padding: 20px; margin-bottom: 20px; border-radius: 8px; border-left: 4px solid #fc0;">
-    ${blocoImagem}
-    <h3 style="color: #fc0; margin-bottom: 5px;">${titulo}</h3>
-    <small style="color: #888;">${data}</small>
-    <p style="margin-top: 10px; color: #eee; line-height: 1.6;">${conteudo}</p>
+    const resultado = `<div style="background:#222; padding:20px; margin-bottom:20px; border-radius:8px; border-left:4px solid #fc0;">
+    ${imgHtml}
+    <h3 style="color:#fc0; margin-bottom:5px;">${titulo}</h3>
+    <small style="color:#888;">${data}</small>
+    <p style="margin-top:10px; color:#eee; line-height:1.6;">${conteudo}</p>
 </div>`;
     
-    document.getElementById('codigo').value = codigoGerado;
-    document.getElementById('caixaResultado').style.display = 'block';
-}
-
-function copiarCodigo() {
-    const codigo = document.getElementById('codigo');
-    codigo.select();
-    navigator.clipboard.writeText(codigo.value);
-    document.getElementById('msgCopiado').style.display = 'block';
-    setTimeout(() => {
-        document.getElementById('msgCopiado').style.display = 'none';
-    }, 3000);
+    document.getElementById('codigo').value = resultado;
 }
 </script>
 

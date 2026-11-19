@@ -6,12 +6,13 @@
 <title>Web Radio Bass Rock</title>
 <style>
 body{background:#000;color:#fff;font-family:Arial;text-align:center;margin:0;padding:20px}
+.box{background:#111;padding:20px;border-radius:15px;max-width:600px;margin:0 auto}
 img.logo{max-width:220px}
 img.capa{max-width:100%;border-radius:12px;margin:15px 0}
+#musica{background:#222;padding:12px;border-radius:10px;font-weight:bold;margin:10px 0}
 button{background:#e60000;color:#fff;border:none;padding:18px 35px;font-size:22px;font-weight:bold;border-radius:50px;cursor:pointer}
-button:hover{background:#ff2222}
 audio{width:100%;margin-top:20px}
-.box{background:#111;padding:20px;border-radius:15px;max-width:600px;margin:0 auto}
+.whats{display:inline-block;margin-top:15px;background:#25D366;color:#fff;padding:12px 25px;border-radius:50px;text-decoration:none;font-weight:bold}
 </style>
 </head>
 <body>
@@ -21,11 +22,27 @@ audio{width:100%;margin-top:20px}
 <h1>WEB RADIO BASS ROCK</h1>
 <p>Rock de verdade, 24h no ar</p>
 
+<div id="musica">🎵 Tocando agora: Carregando...</div>
+
 <audio id="radio" controls preload="none" src="https://server16.srvsh.com.br:8158/;"></audio>
 <br><br>
 <button onclick="document.getElementById('radio').play()">▶ OUVIR AGORA</button>
+<br>
+<a class="whats" href="https://wa.me/5584999999999">Pedir música no WhatsApp</a>
 <br><br>
-<a href="https://wa.me/5584999999999" style="color:#fff">Pedir música no WhatsApp</a>
+<p>Programação: Clássicos do Rock - 24h</p>
 </div>
+
+<script>
+async function agora(){
+  try{
+    let r = await fetch('https://server16.srvsh.com.br:8158/currentsong?sid=1');
+    let t = await r.text();
+    if(t) document.getElementById('musica').innerHTML = '🎵 Tocando agora: ' + t;
+  }catch(e){}
+}
+agora();
+setInterval(agora, 15000);
+</script>
 </body>
 </html>

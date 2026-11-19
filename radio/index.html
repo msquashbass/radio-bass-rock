@@ -12,7 +12,11 @@ img.capa{max-width:100%;border-radius:12px;margin:15px 0}
 #musica{background:#222;padding:12px;border-radius:10px;font-weight:bold;margin:10px 0}
 button{background:#e60000;color:#fff;border:none;padding:18px 35px;font-size:22px;font-weight:bold;border-radius:50px;cursor:pointer}
 audio{width:100%;margin-top:20px}
-.whats{display:inline-block;margin-top:15px;background:#25D366;color:#fff;padding:12px 25px;border-radius:50px;text-decoration:none;font-weight:bold}
+.social{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.social a{color:#fff;padding:12px 20px;border-radius:50px;text-decoration:none;font-weight:bold}
+.face{background:#1877F2}
+.insta{background:#E1306C}
+.whats{background:#25D366}
 </style>
 </head>
 <body>
@@ -27,10 +31,15 @@ audio{width:100%;margin-top:20px}
 <audio id="radio" controls preload="none" src="https://server16.srvsh.com.br:8158/;"></audio>
 <br><br>
 <button onclick="document.getElementById('radio').play()">▶ OUVIR AGORA</button>
+
+<div class="social">
+<a class="face" href="https://www.facebook.com/webradiobass.com.br" target="_blank">Facebook</a>
+<a class="insta" href="https://www.instagram.com/webradiobass.com.br" target="_blank">Instagram</a>
+<a class="whats" href="https://wa.me/5584999999999" target="_blank">WhatsApp</a>
+</div>
+
 <br>
-<a class="whats" href="https://wa.me/5584999999999">Pedir música no WhatsApp</a>
-<br><br>
-<p>Programação: Clássicos do Rock - 24h</p>
+<p>Programação: Clássicos do Rock - 24h<br>Pede sua música no WhatsApp!</p>
 </div>
 
 <script>

@@ -10,144 +10,67 @@
         body { background: var(--rock); color: white; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto; }
-
         header { background: linear-gradient(135deg, var(--red), #800); padding: 1rem 5%; position: sticky; top:0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; }
         .logo span { color: var(--gold); }
-        
         .menu-toggle { display: none; font-size: 28px; padding: 8px 12px; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; position: fixed; top: 10px; right: 10px; z-index: 999999; background: rgba(212, 175, 55, 0.95); color: #000; border-radius: 4px; font-weight: bold; }
-
         section { padding: 2rem 5%; max-width: 1200px; margin: 0 auto; }
         h2 { font-size: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--red); padding-left: 1rem; color: var(--gold); }
-
-        /* Menu Principal */
-        #navMenu {
-            list-style: none;
-            padding: 15px;
-            margin: 20px auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            background: #1a1a1a;
-            border-radius: 8px;
-            border: 2px solid var(--gold);
-            max-width: 1000px;
-        }
+        #navMenu { list-style: none; padding: 15px; margin: 20px auto; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; background: #1a1a1a; border-radius: 8px; border: 2px solid var(--gold); max-width: 1000px; }
         #navMenu.hidden-mobile { display: flex; }
         #navMenu.show { display: flex; }
-        #navMenu li a {
-            color: var(--gold);
-            text-decoration: none;
-            padding: 8px 12px;
-            font-weight: 500;
-        }
-        #navMenu li a:hover {
-            background: var(--gold);
-            color: #000;
-            border-radius: 4px;
-        }
-
-        /* Hero / Logo */
+        #navMenu li a { color: var(--gold); text-decoration: none; padding: 8px 12px; font-weight: 500; }
+        #navMenu li a:hover { background: var(--gold); color: #000; border-radius: 4px; }
         .hero { text-align: center; padding: 2rem 1rem; }
         .hero img { max-width: 350px; width: 80%; margin: 0 auto 1rem; }
         .hero p { font-size: 1rem; color: #ccc; }
-
-        /* Top 5 */
         .top5-item { background: var(--gray); padding: 12px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .posicao { font-size: 1.3rem; font-weight: bold; color: var(--gold); min-width: 30px; text-align: center; }
         audio { flex: 1; height: 36px; }
-
-        /* Rodapé */
         footer { background: black; text-align: center; padding: 2rem 5%; margin-top: 3rem; color: #666; font-size: 0.9rem; }
         .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
         .footer-links a { color: #888; }
         .footer-links a:hover { color: var(--gold); }
-
-        /* Responsivo */
+        .social-bar { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:15px 0 5px; }
+        .social-bar a { padding:12px 20px; border-radius:50px; font-weight:bold; color:#fff !important; }
+        .btn-whats { background:#25D366; }
+        .btn-face { background:#1877F2; }
+        .btn-insta { background:#E1306C; }
+        .btn-radio { background:#c00; }
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             #navMenu { flex-direction: column; max-width: 300px; }
             #navMenu.hidden-mobile { display: none; }
             #navMenu.show { display: flex; position: fixed; top: 60px; left: 0; right: 0; margin: 0; border-radius: 0; border: none; z-index: 99999; max-height: 80vh; overflow-y: auto; }
             h2 { font-size: 1.25rem; }
-            .botao-app {
-  background: linear-gradient(135deg, #fc0, #d4af37);
-  color: #111 !important;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 6px;
-  display: inline-block;
-  margin-top: 5px;
-  text-align: center;
-}
-.botao-app:hover {
-  background: linear-gradient(135deg, #ffd700, #b8860b);
-  transform: scale(1.02);
-  transition: all 0.2s ease;
+            .botao-app { background: linear-gradient(135deg, #fc0, #d4af37); color: #111 !important; font-weight: bold; padding: 8px 16px; border-radius: 6px; display: inline-block; margin-top: 5px; text-align: center; }
+            .botao-app:hover { background: linear-gradient(135deg, #ffd700, #b8860b); transform: scale(1.02); transition: all 0.2s ease; }
         }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho -->
     <header>
         <div class="nav-container">
             <div class="logo">🎸 RÁDIO <span>BASS ROCK</span></div>
         </div>
     </header>
-
-    <!-- Botão Menu Mobile -->
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-    <!-- Player -->
 <iframe src="https://player.srvsh.com.br/player-home-page/8158" frameborder="0" width="100%" height="450"></iframe>
     <iframe src="https://zeno.fm/player/rockbass" width="100%" height="100" frameborder="0" scrolling="no"></iframe><a href="https://zeno.fm/" target="_blank" style="display: block; font-size: 0.9em; line-height: 10px;"></a>
-    <!-- 🎠 Carrossel de Slides -->
 <style>
-.slideshow-container {
-  max-width: 100%;
-  position: relative;
-  margin: auto;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.slide {
-  display: none;
-}
-.slide img {
-  width: 100%;
-  height: 220px; /* ← altura menor no celular */
-  object-fit: cover;
-}
-.fade {
-  animation: fade 1.5s ease-in-out;
-}
-@keyframes fade {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
-}
-
-/* 📱 No celular fica ainda menor */
-@media (max-width: 700px) {
-  .slide img {
-    height: 115px; /* ← altura só para celulares */
-  }
-}
+.slideshow-container { max-width: 100%; position: relative; margin: auto; border-radius: 8px; overflow: hidden; }
+.slide { display: none; }
+.slide img { width: 100%; height: 220px; object-fit: cover; }
+.fade { animation: fade 1.5s ease-in-out; }
+@keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
+@media (max-width: 700px) { .slide img { height: 115px; } }
 </style>
-
 <div class="slideshow-container">
-  <div class="slide fade">
-    <img src="slide 1.png" alt="Slide 1">
-  </div>
-  <div class="slide fade">
-    <img src="slide 2.png" alt="Slide 2">
-  </div>
-  <div class="slide fade">
-    <img src="slide 3.png" alt="Slide 3">
-  </div>
+  <div class="slide fade"><img src="slide 1.png" alt="Slide 1"></div>
+  <div class="slide fade"><img src="slide 2.png" alt="Slide 2"></div>
+  <div class="slide fade"><img src="slide 3.png" alt="Slide 3"></div>
 </div>
-
 <script>
 let indice = 0;
 function mostrarSlide() {
@@ -160,10 +83,8 @@ function mostrarSlide() {
 }
 mostrarSlide();
 </script>
-<!-- 🎠 Fim dos Slides -->
 <li><a href="https://player.srvsh.com.br/player-app-multi-plataforma/8158" target="_blank"><img src="https://player.srvsh.com.br/app-multi-plataforma/img-instalar-app-android.png" width="150" height="48" /></a></a></li>    
     <li><a href="https://player.srvsh.com.br/player-app-multi-plataforma/8158" target="_blank"><img src="https://player.srvsh.com.br/app-multi-plataforma/img-instalar-app-iphone.png" width="150" height="48" /></a>
-    <!-- Menu Principal -->
     <ul id="navMenu" class="hidden-mobile">
         <li><a href="index.html">Início</a></li>
         <li><a href="top5.html">Top 5</a></li>
@@ -172,30 +93,26 @@ mostrarSlide();
         <li><a href="estudio.html">Estúdio</a></li>
        <li><a href="servicos.html">Serviços</a></li>
 <li><a href="sobre.html">Sobre Nós</a></li>
-        
     </ul>
-
-    <!-- Hero / Logo -->
     <div class="hero">
         <img src="LOGO BASS.jpeg" alt="Rádio Bass Rock">
         <p>24 horas de rock, energia e atitude — direto do estúdio para você!</p>
+        <!-- BOTÕES NOVOS -->
+        <div class="social-bar">
+          <a class="btn-radio" href="/radio/">▶ OUVIR A RÁDIO</a>
+          <a class="btn-whats" href="https://wa.me/5584999721466" target="_blank">WhatsApp 84 99972-1466</a>
+          <a class="btn-face" href="https://www.facebook.com/webradiobass.com.br" target="_blank">Facebook</a>
+          <a class="btn-insta" href="https://www.instagram.com/webradiobass.com.br" target="_blank">Instagram</a>
+        </div>
     </div>
-
-    <!-- Banners -->
     <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
         <div style="flex: 1; min-width: 280px; max-width: 400px;">
-            <a href="#" target="_blank">
-                <img src="BANNER.png" alt="Banner 1" style="width: 100%; height: auto; border-radius: 8px;">
-            </a>
+            <a href="#" target="_blank"><img src="BANNER.png" alt="Banner 1" style="width: 100%; height: auto; border-radius: 8px;"></a>
         </div>
         <div style="flex: 1; min-width: 280px; max-width: 400px;">
-            <a href="#" target="_blank">
-                <img src="AULA 400.png" alt="Banner 2" style="width: 100%; height: auto; border-radius: 8px;">
-            </a>
+            <a href="#" target="_blank"><img src="AULA 400.png" alt="Banner 2" style="width: 100%; height: auto; border-radius: 8px;"></a>
         </div>
     </div>
-
-    <!-- Vídeo e Top 5 -->
     <div style="display: flex; gap: 20px; margin: 30px auto; flex-wrap: wrap; max-width: 1200px; padding: 0 5%;">
         <div style="flex: 1; min-width: 300px; background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
             <h3 style="color: #d4af37; text-align: center; font-size: 1.3rem; margin-top: 0; margin-bottom: 15px;">📺 No Estúdio</h3>
@@ -203,40 +120,17 @@ mostrarSlide();
                 <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube.com/embed/8Th2hgkl1v8" title="Vídeo do Estúdio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
-
         <div style="flex: 1; min-width: 300px; background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
             <h3 style="color: #d4af37; text-align: center; font-size: 1.3rem; margin-top: 0; margin-bottom: 15px;">🎵 Top 5 — Mais Tocadas</h3>
             <div>
-                <div class="top5-item">
-                    <span class="posicao">1º</span>
-                    <span>U2 - SILENCIO</span>
-                   
-                </div>
-                <div class="top5-item">
-                    <span class="posicao">2º</span>
-                    <span>THE ROLLING STONES - YOU KNOW I'M NO GOOD</span>
-                    
-                </div>
-                <div class="top5-item">
-                    <span class="posicao">3º</span>
-                    <span>SMASHING PUMPKINS - Black Stars</span>
-                    
-                </div>
-                <div class="top5-item">
-                    <span class="posicao">4º</span>
-                    <span>SUBLIME - FAVORITE SONG</span>
-                    
-                </div>
-                <div class="top5-item">
-                    <span class="posicao">5º</span>
-                    <span>BLONDIE - SPECTRAL EYES</span>
-                    
-                </div>
+                <div class="top5-item"><span class="posicao">1º</span><span>U2 - SILENCIO</span></div>
+                <div class="top5-item"><span class="posicao">2º</span><span>THE ROLLING STONES - YOU KNOW I'M NO GOOD</span></div>
+                <div class="top5-item"><span class="posicao">3º</span><span>SMASHING PUMPKINS - Black Stars</span></div>
+                <div class="top5-item"><span class="posicao">4º</span><span>SUBLIME - FAVORITE SONG</span></div>
+                <div class="top5-item"><span class="posicao">5º</span><span>BLONDIE - SPECTRAL EYES</span></div>
             </div>
         </div>
     </div>
-
-    <!-- App e Notícias -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px auto; max-width: 1200px; padding: 0 5%;">
         <div style="text-align: center; padding: 2rem; border-radius: 12px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
             <h3 style="color: #f5d329; font-size: 1.3rem; margin-bottom: 0.5rem;">📱 Baixe o App</h3>
@@ -249,65 +143,25 @@ mostrarSlide();
             <a href="https://www.whiplash.net/" target="_blank" style="display: inline-block; background: #f5d329; color: #1a1a0a; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">🎸 Abrir Notícias</a>
         </div>
     </div>
-
-    <!-- Recados e Programação -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px auto; max-width: 1200px; padding: 0 5%;">
         <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
             <h3 style="color: #d4af37; text-align: center; font-size: 1.3rem; margin-bottom: 15px;">📬 Deixe seu Recado</h3>
             <form action="https://formspree.io/f/xnpprllb" method="POST">
-                <div style="margin-bottom: 12px;">
-                    <label style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Seu nome:</label>
-                    <input type="text" name="nome" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; color: #000;">
-                </div>
-                <div style="margin-bottom: 12px;">
-                    <label style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Tipo:</label>
-                    <select name="tipo" style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; color: #000;">
-                        <option value="recado">💬 Recado</option>
-                        <option value="pedido-musica">🎵 Pedido de Música</option>
-                        <option value="salve">🤘 Salve</option>
-                        <option value="outro">📝 Outro</option>
-                    </select>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Sua mensagem:</label>
-                    <textarea name="mensagem" rows="4" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; resize: vertical; color: #000;"></textarea>
-                </div>
-                <div style="text-align: center;">
-                    <button type="submit" style="background: #d4af37; color: #000; font-weight: bold; padding: 10px 25px; border: none; border-radius: 4px; font-size: 0.95rem; cursor: pointer;">✅ Enviar</button>
-                </div>
+                <div style="margin-bottom: 12px;"><label style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Seu nome:</label><input type="text" name="nome" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; color: #000;"></div>
+                <div style="margin-bottom: 12px;"><label style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Tipo:</label><select name="tipo" style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; color: #000;"><option value="recado">💬 Recado</option><option value="pedido-musica">🎵 Pedido de Música</option><option value="salve">🤘 Salve</option><option value="outro">📝 Outro</option></select></div>
+                <div style="margin-bottom: 15px;"><label style="display: block; color: #fff; margin-bottom: 5px; font-size: 0.9rem;">Sua mensagem:</label><textarea name="mensagem" rows="4" required style="width: 100%; padding: 8px; border: none; border-radius: 4px; font-size: 0.9rem; resize: vertical; color: #000;"></textarea></div>
+                <div style="text-align: center;"><button type="submit" style="background: #d4af37; color: #000; font-weight: bold; padding: 10px 25px; border: none; border-radius: 4px; font-size: 0.95rem; cursor: pointer;">✅ Enviar</button></div>
             </form>
         </div>
-
         <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 2px solid #d4af37;">
             <h3 style="color: #d4af37; text-align: center; font-size: 1.3rem; margin-bottom: 20px;">📻 Nossa Programação</h3>
             <div style="color: #fff; font-size: 0.95rem; line-height: 1.8;">
-                <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;">
-                    <strong style="color: #d4af37;">Segunda a Sexta</strong><br>
-                    🕙 06h00 — Pulando da Cama<br>
-                    🕙 09h00 — Só na Pressão<br>
-                    🕐 12h00 — Atitude Máxima<br>
-                    🕔 17h00 — A Hora é Agora<br>
-                    🕗 21h00 — Virando clássico<br>
-                    🕛 24h00 — Noite à dentro
-                </div>
-                <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;">
-                    <strong style="color: #d4af37;">Sábado</strong><br>
-                    🕗 06h00 — Pulando da Cama<br>
-                    🕙 10h00 — É puro Rock<br>
-                    🕐 14h00 — Top Todas<br>
-                    🕔 18h00 — Pré Aquecimento<br>
-                    🕗 20h00 — Saturday Night Fever<br>
-                    🕛 24h00 — Noite à dentro
-                </div>
-                <div>
-                    <strong style="color: #d4af37;">Domingo</strong><br>
-                    🎵 Dia todo — Sunday Flash Rock
-                </div>
+                <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;"><strong style="color: #d4af37;">Segunda a Sexta</strong><br>🕙 06h00 — Pulando da Cama<br>🕙 09h00 — Só na Pressão<br>🕐 12h00 — Atitude Máxima<br>🕔 17h00 — A Hora é Agora<br>🕗 21h00 — Virando clássico<br>🕛 24h00 — Noite à dentro</div>
+                <div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #333;"><strong style="color: #d4af37;">Sábado</strong><br>🕗 06h00 — Pulando da Cama<br>🕙 10h00 — É puro Rock<br>🕐 14h00 — Top Todas<br>🕔 18h00 — Pré Aquecimento<br>🕗 20h00 — Saturday Night Fever<br>🕛 24h00 — Noite à dentro</div>
+                <div><strong style="color: #d4af37;">Domingo</strong><br>🎵 Dia todo — Sunday Flash Rock</div>
             </div>
         </div>
     </div>
-
-    <!-- Rodapé -->
     <footer>
         <div class="footer-links">
             <a href="index.html">Início</a>
@@ -320,7 +174,6 @@ mostrarSlide();
         <p>© 2026 Rádio Bass Rock — Todos os direitos reservados.</p>
         <p>Natal — Rio Grande do Norte • Brasil</p>
     </footer>
-<!-- Clima Parnamirim/RN -->
 <script>
 async function pegarClima() {
     try {
@@ -328,9 +181,7 @@ async function pegarClima() {
         const dados = await resposta.json();
         const temp = Math.round(dados.current.temperature_2m);
         document.querySelector('.clima-temp').innerHTML = temp + '°C';
-    } catch {
-        console.log('Não foi possível carregar o clima');
-    }
+    } catch { console.log('Não foi possível carregar o clima'); }
 }
 pegarClima();
 </script>
@@ -338,8 +189,7 @@ pegarClima();
     <strong style="color: #d4af37; font-size: 17px;">📍 Parnamirim/RN</strong>
     <p style="color: #fff; margin: 8px 0 0 0; font-size: 16px;" class="clima-temp">🌤️ Temperatura atual: --°C</p>
 </div>
-    <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
-<!-- Histats.com  START  (aync)-->
+<div id="histats_counter"></div>
 <script type="text/javascript">var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,5062439,4,329,112,62,00010000']);
 _Hasync.push(['Histats.fasi', '1']);
@@ -350,8 +200,6 @@ hs.src = ('//s10.histats.com/js15_as.js');
 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
 })();</script>
 <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5062439&101" alt="counter create hit" border="0"></a></noscript>
-<!-- Histats.com  END  -->
-    <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -363,8 +211,6 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
-<!--End of Tawk.to Script-->
-    <!-- Script Menu Mobile -->
     <script>
     function toggleMenu() {
         const menu = document.getElementById('navMenu');

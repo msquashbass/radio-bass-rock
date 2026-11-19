@@ -7,13 +7,10 @@
 <style>
 body{background:#000;color:#fff;font-family:Arial;text-align:center;margin:0;padding:20px}
 .box{background:#111;padding:20px;border-radius:15px;max-width:600px;margin:0 auto}
-img.logo{max-width:220px}
-img.capa{max-width:100%;border-radius:12px;margin:15px 0}
-#musica{background:#222;padding:12px;border-radius:10px;font-weight:bold;margin:10px 0}
-button{background:#e60000;color:#fff;border:none;padding:18px 35px;font-size:22px;font-weight:bold;border-radius:50px;cursor:pointer}
-audio{width:100%;margin-top:20px}
+h1{margin:10px 0}
+.player{width:100%;max-width:428px;height:428px;border:0;border-radius:15px;overflow:hidden;margin:15px auto;display:block}
 .social{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-.social a{color:#fff;padding:12px 20px;border-radius:50px;text-decoration:none;font-weight:bold}
+.social a{color:#fff;padding:14px 22px;border-radius:50px;text-decoration:none;font-weight:bold}
 .face{background:#1877F2}
 .insta{background:#E1306C}
 .whats{background:#25D366}
@@ -21,17 +18,13 @@ audio{width:100%;margin-top:20px}
 </head>
 <body>
 <div class="box">
-<img class="logo" src="logo.png" alt="Bass Rock">
-<img class="capa" src="capa.png" alt="Capa">
 <h1>WEB RADIO BASS ROCK</h1>
 <p>Rock de verdade, 24h no ar</p>
 
-<div id="musica">🎵 Tocando agora: Carregando...</div>
+<!-- SEU PLAYER OFICIAL -->
+<iframe class="player" src="https://player.srvsh.com.br/player-icast/8158" frameborder="0" width="428" height="428"></iframe>
 
-<audio id="radio" controls preload="none" src="https://server16.srvsh.com.br:8158/;"></audio>
-<br><br>
-<button onclick="document.getElementById('radio').play()">▶ OUVIR AGORA</button>
-
+<!-- BOTOES SOCIAIS -->
 <div class="social">
 <a class="face" href="https://www.facebook.com/webradiobass.com.br" target="_blank">Facebook</a>
 <a class="insta" href="https://www.instagram.com/webradiobass.com.br" target="_blank">Instagram</a>
@@ -39,19 +32,7 @@ audio{width:100%;margin-top:20px}
 </div>
 
 <br>
-<p>Programação: Clássicos do Rock - 24h<br>Pede sua música no WhatsApp 84 99972-1466</p>
+<p>Pede sua música no WhatsApp<br><b>84 99972-1466</b><br><br>Programação: Clássicos do Rock - 24h</p>
 </div>
-
-<script>
-async function agora(){
-  try{
-    let r = await fetch('https://server16.srvsh.com.br:8158/currentsong?sid=1');
-    let t = await r.text();
-    if(t) document.getElementById('musica').innerHTML = '🎵 Tocando agora: ' + t;
-  }catch(e){}
-}
-agora();
-setInterval(agora, 15000);
-</script>
 </body>
 </html>
